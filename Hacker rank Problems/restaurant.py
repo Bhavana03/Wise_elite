@@ -1,0 +1,30 @@
+
+import os
+import sys
+
+def restaurant(l, b):
+    temp = 1
+    k = l * b
+    for i in range(2,l + 1):
+        if l % i == 0 and b % i == 0 :
+            k = (l // i) * (b // i)
+    return k
+         
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        lb = input().split()
+
+        l = int(lb[0])
+
+        b = int(lb[1])
+
+        result = restaurant(l, b)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
